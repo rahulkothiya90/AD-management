@@ -1,7 +1,22 @@
-$users = Get-Content users.json | ConvertFrom-Json
+$users = Get-Content "../users.json" | ConvertFrom-Json
 
 foreach ($user in $users) {
-    if ($user.Groups -contains "Domain Admins") {
-        throw "❌ Direct Domain Admin assignment is запрещено (forbidden)"
+
+    # Check if user exists
+    $existing = Get-ADUser -Filter "SamAccountName -eq '$($user.SamAccountName)'" -ErrorAction SilentlyContinue
+
+    if (-not $existing) {
+        Write-Host "Creating user: $($user.SamAccountName)"
+
+        New-ADUser `
+            -Name $user.Name `
+            -SamAccountName $user.SamAccountName `
+            -Enabled $true `
+            -AccountPassword (ConvertTo-SecureString "TempP@ss123!" -AsPlainText -Force)
+    }
+
+    # Add to groups
+    foreach ($group in $user.Groups) {
+        Add-ADGroupMember -Identity $group -Members $user.SamAccountName -ErrorAction SilentlyContinue
     }
 }
