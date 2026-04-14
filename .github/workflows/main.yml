@@ -1,0 +1,19 @@
+name: AD Management
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy-ad:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Run AD script
+        shell: powershell
+        run: |
+          cd scripts
+          .\apply.ps1
