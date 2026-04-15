@@ -1,8 +1,0 @@
-[
-  {
-    "Name": "John Doe",
-    "SamAccountName": "jdoe",
-    "Department": "IT",
-    "Groups": ["IT_Admins"]
-  }
-]
