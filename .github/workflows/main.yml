@@ -8,15 +8,10 @@ jobs:
   deploy-ad:
     runs-on: self-hosted
 
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Run AD script
         shell: powershell
-        run: |
-          cd scripts
-          run: .\apply.ps1
+        working-directory: scripts
+        run: .\apply.ps1
