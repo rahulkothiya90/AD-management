@@ -1,4 +1,4 @@
-$users = Get-Content "../users.json" | ConvertFrom-Json
+$users = Get-Content "../user.json" | ConvertFrom-Json
 
 foreach ($user in $users) {
 
