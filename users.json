@@ -2,7 +2,7 @@
   {
     "Name": "Tim look",
     "SamAccountName": "tlook",
-    "UserPrincipalName" "tlook@royslab.pl",
+    "UserPrincipalName": "tlook@royslab.pl",
     "Department": "IT",
     "Groups": ["IT_Admins"]
   }
