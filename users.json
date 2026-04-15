@@ -1,7 +1,8 @@
 [
   {
-    "Name": "John Doe",
-    "SamAccountName": "jdoe",
+    "Name": "Tim look",
+    "SamAccountName": "tlook",
+    "UserPrincipalName" "tlook@royslab.pl",
     "Department": "IT",
     "Groups": ["IT_Admins"]
   }
