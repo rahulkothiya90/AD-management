@@ -11,6 +11,7 @@ foreach ($user in $users) {
         New-ADUser `
             -Name $user.Name `
             -SamAccountName $user.SamAccountName `
+            -UserPrincipalName $user.UserPrincipalName `
             -Enabled $true `
             -AccountPassword (ConvertTo-SecureString "TempP@ss123!" -AsPlainText -Force)
     }
