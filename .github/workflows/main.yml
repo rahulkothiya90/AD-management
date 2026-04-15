@@ -19,4 +19,4 @@ jobs:
         shell: powershell
         run: |
           cd scripts
-          .\apply.ps1
+          run: .\apply.ps1
